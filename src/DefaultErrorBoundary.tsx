@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { Component, ReactNode } from 'react';
 
-export default class DefaultErrorBoundary extends React.Component {
-  constructor(props) {
+interface Props {
+  children: ReactNode;
+}
+
+interface State {
+  isError: boolean;
+}
+
+export default class DefaultErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { isError: false };
   }
