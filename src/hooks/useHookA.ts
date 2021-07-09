@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-export const INITIAL_HOOK_STATE = {
+interface UseHookAState {
+  data: any;
+  isLoading: boolean;
+}
+
+export const INITIAL_HOOK_STATE: UseHookAState = {
   data: null,
   isLoading: null,
 };
 
-const useHookA = () => {
-  const [data, setData] = useState(INITIAL_HOOK_STATE);
+const useHookA = (): [UseHookAState['data'], UseHookAState['isLoading']] => {
+  const [data, setData] = useState<UseHookAState>(INITIAL_HOOK_STATE);
 
   useEffect(() => {
     setData({ ...data, isLoading: true });
